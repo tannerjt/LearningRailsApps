@@ -1,0 +1,12 @@
+<h2>Dog Details</h2>
+
+<h3><%= @dog.name %></h3>
+<ul>
+  <li><%= image_tag(@dog.DogImage_url) if @dog.DogImage? %></li>
+  <li>Breed: <%= @dog.breed %></li>
+  <li>Age: <%= @dog.age %></li>
+  <li>Gender: <%= @dog.gender %></li>
+  <li>Price: <%= @dog.price %></li>
+  <li>Breeder: <%= @dog.breeder.email %></li>
+</ul>
+<%= link_to 'Back', root_path %>

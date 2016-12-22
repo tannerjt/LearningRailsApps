@@ -1,0 +1,35 @@
+<%= form_for @dog, html: { multipart: true } do |f| %>
+  <% if @dog.errors.any? %>
+    <ul>
+      <% @dog.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= image_tag(@dog.DogImage_url) if @dog.DogImage? %>
+  <%= f.label :DogImage %>
+  <%= f.file_field :DogImage %>
+  
+  <div class="form-control">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="form-control">
+    <%= f.label :breed %>
+    <%= f.text_field :breed %>
+  </div>
+  <div class="form-control">
+    <%= f.label :age %>
+    <%= f.text_field :age %>
+  </div>
+  <div class="form-control">
+    <%= f.label :gender %>
+    <%= f.text_field :gender %>
+  </div>
+  <div class="form-control">
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </div>
+  <%= f.submit "Submit" %>
+<% end %>

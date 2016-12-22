@@ -1,0 +1,28 @@
+<h2>Workout</h2>
+
+<p>
+  <%= @workout.date %>
+</p>
+<p>
+  <%= @workout.workout %>
+</p>
+<p>
+  <%= @workout.mood %>
+</p>
+<p>
+  <%= @workout.length %>
+</p>
+
+<div id="exercises">
+  <h2>Exercises</h2>
+  <%= render @workout.exercises %>
+
+  <h3>Add an exercise</h3>
+  <p>
+    <%= render 'exercises/form' %>
+  </p>
+</div>
+
+<%= link_to "Back", root_path %> |
+<%= link_to "Edit", edit_workout_path(@workout) %> |
+<%= link_to "Delete", workout_path(@workout), method: :delete, data: {confirm: "are you sure?"} %>
