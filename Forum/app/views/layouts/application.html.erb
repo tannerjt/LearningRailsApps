@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Joshua's Rails Forum</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', "https://fonts.googleapis.com/css?family=Latto" %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header class="main-header clearfix">
+      <div class="wrapper">
+        <div id='logo'>
+          <p>
+            <%= link_to "Joshua's Rails Forum", root_path %>
+          </p>
+        </div>
+        <div id="buttons">
+          <% if user_signed_in? %>
+            <%= link_to "New Post", new_post_path %>
+          <% else %>
+            <%= link_to "Sign Up", new_user_registration_path %>
+            <%= link_to "Sign In", new_user_session_path %>
+          <% end %>
+        </div>
+      </div>
+    </header>
+    <div class="wrapper">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
+    <div class="wrapper">
+      <%= yield %>
+    </div>
+  </body>
+</html>
