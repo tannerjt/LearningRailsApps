@@ -1,0 +1,21 @@
+<% unless user_signed_in? %>
+  <div class="jumbotron">
+    <h1>Your Favorite Movies Reviewed</h1>
+    <p>
+      Wolf tbh DIY, snackwave fashion axe whatever try-hard before they sold out post-ironic asymmetrical prism. Pitchfork fashion axe intelligentsia shoreditch, raw denim tofu sriracha hella sartorial forage poutine blog YOLO.
+    </p>
+    <p>
+      <%= link_to "Sign Up To Write A Review", new_user_registration_path, class: "btn btn-info btn-lg" %>
+    </p>
+  </div>
+<% end %>
+<div class="row">
+  <% @movies.each do |movie| %>
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+          <%= link_to (image_tag movie.image(:medium), class: 'image'), movie %>
+      </div>
+
+    </div>
+  <% end %>
+</div>
